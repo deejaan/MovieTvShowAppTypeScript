@@ -11,7 +11,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { MovieItemType, TvShowItemType } from "../types/types";
+import { MovieItemType, TvShowItemType, AppContextType } from "../types/types";
 
 const Home: React.FC = () => {
   let currentActive = "tvshows";
@@ -24,14 +24,17 @@ const Home: React.FC = () => {
     MovieItemType[] | TvShowItemType[]
   >([]);
 
-  const onSearchChange = useCallback((event) => {
-    const value: string = event.target.value;
-    setTimeout(() => {
-      setSearchQuery(value);
-    }, 1000);
-  }, []);
+  const onSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value: string = event.target.value;
+      setTimeout(() => {
+        setSearchQuery(value);
+      }, 1000);
+    },
+    []
+  );
 
-  const contextValues = useMemo(
+  const contextValues: AppContextType = useMemo(
     () => ({
       activeTab,
       setActiveTab,

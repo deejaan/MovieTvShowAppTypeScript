@@ -21,7 +21,7 @@ const Movies: React.FC = () => {
           searchQuery
       );
       const dataSearchJSON = await dataSearch.json();
-      const searchedMovies = dataSearchJSON.results;
+      const searchedMovies: MovieItemType[] = dataSearchJSON.results;
       setSearchItems(searchedMovies);
     };
 
@@ -38,7 +38,7 @@ const Movies: React.FC = () => {
       "https://api.themoviedb.org/3/movie/top_rated?api_key=f947a44d2a6e4d83597caac31844a6f7"
     );
     const dataJSON = await data.json();
-    const movies = dataJSON.results.slice(0, 10);
+    const movies: MovieItemType[] = dataJSON.results.slice(0, 10);
     setMovies(movies);
   };
 

@@ -26,7 +26,7 @@ const Details: React.FC<RouteComponentProps<ParamsType>> = ({ match }) => {
             id +
             "?api_key=f947a44d2a6e4d83597caac31844a6f7"
         );
-        const details = await data.json();
+        const details: MovieItemType = await data.json();
         setDetailsMovie(details);
 
         //dobavljanje youtube linka za trailer
@@ -36,10 +36,12 @@ const Details: React.FC<RouteComponentProps<ParamsType>> = ({ match }) => {
             "/videos?api_key=f947a44d2a6e4d83597caac31844a6f7"
         );
         const videosJSON = await dataVideos.json();
-        const videos = videosJSON.results;
-        const trailerVideo = videos.find((video: VideoObjectType) => {
-          return video.type === "Trailer";
-        });
+        const videos: VideoObjectType[] = videosJSON.results;
+        const trailerVideo: VideoObjectType | undefined = videos.find(
+          (video: VideoObjectType) => {
+            return video.type === "Trailer";
+          }
+        );
         if (trailerVideo) {
           const youtubeLink =
             "https://www.youtube.com/watch?v=" + trailerVideo.key;
@@ -53,7 +55,7 @@ const Details: React.FC<RouteComponentProps<ParamsType>> = ({ match }) => {
             id +
             "?api_key=f947a44d2a6e4d83597caac31844a6f7"
         );
-        const details = await data.json();
+        const details: TvShowItemType = await data.json();
         setDetailsTvShow(details);
 
         //dobavljanje youtube linka za trailer
@@ -63,10 +65,12 @@ const Details: React.FC<RouteComponentProps<ParamsType>> = ({ match }) => {
             "/videos?api_key=f947a44d2a6e4d83597caac31844a6f7"
         );
         const videosJSON = await dataVideos.json();
-        const videos = videosJSON.results;
-        const trailerVideo = videos.find((video: VideoObjectType) => {
-          return video.type === "Trailer";
-        });
+        const videos: VideoObjectType[] = videosJSON.results;
+        const trailerVideo: VideoObjectType | undefined = videos.find(
+          (video: VideoObjectType) => {
+            return video.type === "Trailer";
+          }
+        );
         if (trailerVideo) {
           const youtubeLink =
             "https://www.youtube.com/watch?v=" + trailerVideo.key;

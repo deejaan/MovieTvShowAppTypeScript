@@ -9,7 +9,7 @@ import { TvShowItemType } from "../types/types";
 //da je ovako malo preglednije.
 
 const TvShows: React.FC = () => {
-  const [tvShows, setTvShows] = useState([]);
+  const [tvShows, setTvShows] = useState<TvShowItemType[]>([]);
   const { searchQuery, searchItems, setSearchItems } = useContext(AppContext);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const TvShows: React.FC = () => {
           searchQuery
       );
       const dataSearchJSON = await dataSearch.json();
-      const searchedTvShows = dataSearchJSON.results;
+      const searchedTvShows: TvShowItemType[] = dataSearchJSON.results;
       setSearchItems(searchedTvShows);
     };
 
@@ -38,7 +38,7 @@ const TvShows: React.FC = () => {
       "https://api.themoviedb.org/3/tv/top_rated?api_key=f947a44d2a6e4d83597caac31844a6f7"
     );
     const dataJson = await data.json();
-    const tvShows = dataJson.results.slice(0, 10);
+    const tvShows: TvShowItemType[] = dataJson.results.slice(0, 10);
     setTvShows(tvShows);
   };
 
@@ -67,7 +67,7 @@ const TvShows: React.FC = () => {
                   title={item.name}
                   imagePath={item.poster_path}
                   rating={item.vote_average}
-                  itemType="movies"
+                  itemType="tvshows"
                 ></Show>
               ))
         }
