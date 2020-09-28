@@ -1,3 +1,15 @@
+This application is the TypeScript version of the same MovieTvShowApp application, also avaliable on my GitHub.
+
+---------------------------------------------------------------------------------------------------------------
+
+Web app that lists top 10 rated movies and TV shows, with search functionality, using TheMovieDB api. Written in TypeScript using React. The app was made for a React Developer job assignment in the company Rubicon Sarajevo.
+
+Displays knowledge of HTML5, CSS, React hooks, React Context, React Router, ESLint and a simple, intuitive UI.
+
+Run the app using npm start.
+
+---------------------------------------------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
